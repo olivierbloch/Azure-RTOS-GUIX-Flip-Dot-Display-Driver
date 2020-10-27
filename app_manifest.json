@@ -1,0 +1,10 @@
+{
+  "SchemaVersion": 1,
+  "Name": "AzureSRFlipdot",
+  "ComponentId": "3d94cc34-110a-4e88-acb0-107e02dc4718",
+  "EntryPoint": "/bin/app",
+  "CmdArgs": [],
+  "Capabilities": {
+  },
+  "ApplicationType": "RealTimeCapable"
+}

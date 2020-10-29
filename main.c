@@ -3,54 +3,39 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdbool.h>
 
-extern uint32_t StackTop; // &StackTop == end of TCM
+#include "printf.h"
+#include "mt3620.h"
+#include "os_hal_uart.h"
 
-static const uintptr_t SCB_BASE = 0xE000ED00;
+static const uint8_t uart_port_num = OS_HAL_UART_ISU0;
 
-static _Noreturn void DefaultExceptionHandler(void);
+int main(void);
 
-static _Noreturn void RTCoreMain(void);
-
-// ARM DDI0403E.d SB1.5.2-3
-// From SB1.5.3, "The Vector table must be naturally aligned to a power of two whose alignment
-// value is greater than or equal to (Number of Exceptions supported x 4), with a minimum alignment
-// of 128 bytes.". The array is aligned in linker.ld, using the dedicated section ".vector_table".
-
-// The exception vector table contains a stack pointer, 15 exception handlers, and an entry for
-// each interrupt.
-#define INTERRUPT_COUNT 100 // from datasheet
-#define EXCEPTION_COUNT (16 + INTERRUPT_COUNT)
-#define INT_TO_EXC(i_) (16 + (i_))
-const uintptr_t ExceptionVectorTable[EXCEPTION_COUNT] __attribute__((section(".vector_table")))
-__attribute__((used)) = {
-    [0] = (uintptr_t)&StackTop,                // Main Stack Pointer (MSP)
-    [1] = (uintptr_t)RTCoreMain,               // Reset
-    [2] = (uintptr_t)DefaultExceptionHandler,  // NMI
-    [3] = (uintptr_t)DefaultExceptionHandler,  // HardFault
-    [4] = (uintptr_t)DefaultExceptionHandler,  // MPU Fault
-    [5] = (uintptr_t)DefaultExceptionHandler,  // Bus Fault
-    [6] = (uintptr_t)DefaultExceptionHandler,  // Usage Fault
-    [11] = (uintptr_t)DefaultExceptionHandler, // SVCall
-    [12] = (uintptr_t)DefaultExceptionHandler, // Debug monitor
-    [14] = (uintptr_t)DefaultExceptionHandler, // PendSV
-    [15] = (uintptr_t)DefaultExceptionHandler, // SysTick
-
-    [INT_TO_EXC(0)... INT_TO_EXC(INTERRUPT_COUNT - 1)] = (uintptr_t)DefaultExceptionHandler};
-
-static _Noreturn void DefaultExceptionHandler(void)
+/******************************************************************************/
+/* Application Hooks */
+/******************************************************************************/
+// Hook for "printf".
+void _putchar(char character)
 {
-    for (;;) {
-        // empty.
-    }
+    mtk_os_hal_uart_put_char(uart_port_num, character);
+    if (character == '\n')
+        mtk_os_hal_uart_put_char(uart_port_num, '\r');
 }
 
-static _Noreturn void RTCoreMain(void)
+_Noreturn void RTCoreMain(void)
 {
-    // SCB->VTOR = ExceptionVectorTable
-    *(volatile uint32_t *)(SCB_BASE + 0x08) = (uint32_t)ExceptionVectorTable;
+    // Init Vector Table
+    NVIC_SetupVectorTable();
+
+    // Init UART
+    mtk_os_hal_uart_ctlr_init(uart_port_num);
+    printf("UART Initialized (port_num=%d)\n", uart_port_num);
+    
+    main();
 
     for (;;) {
-        // empty.
+		__asm__("wfi");
     }
 }

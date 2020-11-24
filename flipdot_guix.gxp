@@ -50,7 +50,7 @@
 </header>
 <display_info>
 <display_index>0</display_index>
-<display_name>display_1</display_name>
+<display_name>display</display_name>
 <xres>28</xres>
 <yres>14</yres>
 <bits_per_pix>1</bits_per_pix>
@@ -1438,6 +1438,15 @@
 <enabled>TRUE</enabled>
 <compress>FALSE</compress>
 </resource>
+<resource>
+<name>Add New String</name>
+<pathinfo>
+<pathtype>project_relative</pathtype>
+</pathinfo>
+<is_default>FALSE</is_default>
+<enabled>TRUE</enabled>
+<compress>FALSE</compress>
+</resource>
 </resource>
 <vscroll_appearance>
 <scroll_width>20</scroll_width>
@@ -1528,7 +1537,7 @@
 <folder_name>default_folder</folder_name>
 <widget>
 <type>window</type>
-<app_name>MAIN</app_name>
+<app_name>main_window</app_name>
 <size>
 <left>0</left>
 <top>0</top>

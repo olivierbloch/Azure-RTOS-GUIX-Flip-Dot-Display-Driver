@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// ThreadX and GuiX headers
+// ThreadX and GUIX headers
 #include "tx_api.h"
 #include "gx_api.h"
 #include "flipdot_guix_resources.h"
@@ -11,18 +11,18 @@
 #include "GPIO.h"
 
 // Heartbeat LED timer resources
-static bool led_on = false;
+static bool     led_on = false;
 // static int counter = 0;
-TX_TIMER    my_timer;
-#define     LED_1_GREEN_GPIO 9
-static bool ticker_on = false;
+TX_TIMER        my_timer;
+#define         LED_1_GREEN_GPIO 9
+static bool     ticker_on = false;
 
 // Timer for ticker refresh
-#define CLOCK_TIMER         20
+#define         CLOCK_TIMER         20
 
 // GuiX resources
-#define     GUIX_THREAD_STACK_SIZE 4096
-#define     GUIX_THREAD_PRIORITY   4
+#define         GUIX_THREAD_STACK_SIZE 4096
+#define         GUIX_THREAD_PRIORITY   4
 
 GX_WINDOW_ROOT  *root;
 TX_THREAD       guix_thread;
@@ -35,7 +35,7 @@ void timer_expired(ULONG param)
     led_on = !led_on;
 }
 
-// GuiX main thread
+// GUIX main thread
 VOID guix_thread_entry(ULONG thread_input)
 {
     GX_WINDOW_ROOT *root;
@@ -56,6 +56,7 @@ VOID guix_thread_entry(ULONG thread_input)
     gx_system_start();
 }
 
+// Main window event processing
 UINT main_event_process(GX_WINDOW *window, GX_EVENT *event_ptr) {
     switch (event_ptr->gx_event_type)
     {
@@ -82,9 +83,7 @@ UINT main_event_process(GX_WINDOW *window, GX_EVENT *event_ptr) {
     }
 }
 
-
-/* Define main entry point.  */
-
+// ThreadX app main entry point
 int main(void)
 {
     /* Enter the ThreadX kernel.  */
@@ -94,8 +93,7 @@ int main(void)
 }
 
 
-/* Define what the initial system looks like.  */
-
+// ThreadX application setup
 void    tx_application_define(void *first_unused_memory)
 {
     // Create the GUI thread.

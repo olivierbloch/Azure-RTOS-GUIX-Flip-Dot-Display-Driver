@@ -1,7 +1,5 @@
 #include "flipdot_graphics_driver.h"
-
-#include "mt3620_lib/UART.h"
-#include "mt3620_lib/Print.h"
+#include "UART.h"
 
 // Typedef to simplify code reading
 typedef unsigned char byte;
@@ -14,7 +12,7 @@ void map_logical_display_to_physical_display(void);
 #define FLIPDOT_UART MT3620_UNIT_ISU0
 UART *driver = NULL;
 
-// Flipdot hardware specifics
+// Flipdot hardware stuff
 typedef struct {
 	byte frameStart;
 	byte command;
@@ -22,6 +20,8 @@ typedef struct {
 	byte data[28];
 	byte frameEnd;
 } flipFrame;
+
+flipFrame frame;
 
 const static byte cmd_sendToDisplay = 0x83;
 
@@ -32,10 +32,7 @@ const unsigned int mask[] = { 128,64,32,16,8,4,2,1 }; // Mask used to shift data
 const unsigned int getMask[] = { 128, 64, 32, 16, 8, 4, 2, 1 };
 const unsigned int setMask[] = { 64, 32, 16, 8, 4, 2, 1 };
 
-flipFrame frame;
-int PixelPointer = 0;
-int PixelLength = 0;
-
+// Utility function to send frame to Flipdot over serial connection
 void send_to_flipdot(byte *messageToSend, unsigned int bytesToSend)
 {
 	UART_Write(driver, messageToSend, bytesToSend );
@@ -73,6 +70,7 @@ void map_logical_display_to_physical_display(void)
 	}
 }
 
+// Main buffer toggle function for the driver
 static void flipdot_buffer_toggle(GX_CANVAS *canvas, GX_RECTANGLE *dirty)
 {
 	// Copy canvas to logical diplay buffer
@@ -97,6 +95,7 @@ static void flipdot_buffer_toggle(GX_CANVAS *canvas, GX_RECTANGLE *dirty)
 	send_to_flipdot((byte*)&frame, sizeof(frame));
 }
 
+// Driver setup
 UINT flipdot_graphics_driver_setup(GX_DISPLAY *display)
 {
     // Init frame buffer
@@ -108,8 +107,8 @@ UINT flipdot_graphics_driver_setup(GX_DISPLAY *display)
 	frame.frameEnd = 0x8f;
 	frame.address = 0x00; // top display
 
-	PixelPointer = 0;	// point to first pixel of the array.
-	PixelLength = 0;	// no string (yet).
+	// PixelPointer = 0;	// point to first pixel of the array.
+	// PixelLength = 0;	// no string (yet).
 
     // Init serial port
 	driver = UART_Open(FLIPDOT_UART, 57600, UART_PARITY_NONE, 1, NULL);

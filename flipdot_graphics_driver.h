@@ -1,3 +1,5 @@
+// Licensed under the MIT License.
+
 #include "gx_api.h"
 #include "gx_display.h"
 

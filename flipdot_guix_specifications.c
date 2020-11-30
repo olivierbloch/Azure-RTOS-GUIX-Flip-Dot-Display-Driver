@@ -6,7 +6,7 @@
 /*  GUIX Studio User Guide, or visit our web site at azure.com/rtos            */
 /*                                                                             */
 /*  GUIX Studio Revision 6.1.0.0                                               */
-/*  Date (dd.mm.yyyy): 18.11.2020   Time (hh:mm): 16:54                        */
+/*  Date (dd.mm.yyyy): 25.11.2020   Time (hh:mm): 14:35                        */
 /*******************************************************************************/
 
 
@@ -93,7 +93,7 @@ GX_ML_TEXT_VIEW_PROPERTIES main_window_text_view_properties =
     GX_COLOR_ID_TEXT_INPUT_TEXT,             /* selected text color            */
     GX_COLOR_ID_DISABLED_TEXT,               /* disabled text color            */
     0,                                       /* whitespace                     */
-    1                                        /* line_space                     */
+    2                                        /* line_space                     */
 };
 
 GX_CONST GX_STUDIO_WIDGET main_window_text_view_define =

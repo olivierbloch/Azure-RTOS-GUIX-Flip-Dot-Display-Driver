@@ -1,3 +1,5 @@
+// Licensed under the MIT License.
+
 // Use this app to test the device and SDK installation succeeded, and that you
 // can deploy and debug applications on the real-time core.
 

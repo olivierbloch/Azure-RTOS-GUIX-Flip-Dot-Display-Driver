@@ -1,3 +1,5 @@
+// Licensed under the MIT License.
+
 #include "flipdot_graphics_driver.h"
 #include "UART.h"
 

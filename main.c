@@ -1,15 +1,8 @@
-// Licensed under the MIT License.
-
-// Use this app to test the device and SDK installation succeeded, and that you
-// can deploy and debug applications on the real-time core.
-
-#include <stddef.h>
-#include <stdint.h>
-#include <stdbool.h>
+/* Copyright (c) Microsoft Corporation.
+   Licensed under the MIT License. */
 
 #include "CPUFreq.h"
 #include "VectorTable.h"
-#include "NVIC.h"
 
 int main(void);
 

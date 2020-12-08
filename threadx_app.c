@@ -1,4 +1,5 @@
-// Licensed under the MIT License.
+/* Copyright (c) Microsoft Corporation.
+   Licensed under the MIT License. */
 
 // Standard headers
 #include <stdio.h>
@@ -13,7 +14,7 @@
 
 // Timer for ticker refresh
 #define         CLOCK_TIMER         20
-static bool     ticker_on = false;
+static bool  ticker_on = false;
 
 // GuiX resources
 #define         GUIX_THREAD_STACK_SIZE 4096

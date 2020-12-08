@@ -18,8 +18,8 @@ include_directories(${CMAKE_SOURCE_DIR}
 
 # Create executable
 add_executable (${PROJECT_NAME}
-    tx_initialize_low_level.S
-    VectorTable.c
+    mt3620-m4-samples/ThreadX_RTApp_MT3620_AzureRTOS/tx_initialize_low_level.S
+    mt3620-m4-samples/ThreadX_RTApp_MT3620_AzureRTOS/VectorTable.c
     mt3620_lib/GPIO.c
     mt3620_lib/UART.c
     mt3620_lib/Print.c
@@ -36,7 +36,7 @@ add_subdirectory(threadx)
 add_subdirectory(guix)
 
 target_link_libraries(${PROJECT_NAME} azrtos::threadx azrtos::guix)
-set_target_properties (${PROJECT_NAME} PROPERTIES LINK_DEPENDS ${CMAKE_SOURCE_DIR}/linker.ld)
+set_target_properties (${PROJECT_NAME} PROPERTIES LINK_DEPENDS ${CMAKE_SOURCE_DIR}/mt3620-m4-samples/ThreadX_RTApp_MT3620_AzureRTOS/linker.ld)
 
 # target_link_libraries (${PROJECT_NAME} PUBLIC -L"${CMAKE_SOURCE_DIR}")
 

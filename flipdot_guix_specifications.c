@@ -6,7 +6,7 @@
 /*  GUIX Studio User Guide, or visit our web site at azure.com/rtos            */
 /*                                                                             */
 /*  GUIX Studio Revision 6.1.0.0                                               */
-/*  Date (dd.mm.yyyy):  8.12.2020   Time (hh:mm): 21:27                        */
+/*  Date (dd.mm.yyyy):  8.12.2020   Time (hh:mm): 21:50                        */
 /*******************************************************************************/
 
 
@@ -87,7 +87,7 @@ GX_WINDOW_PROPERTIES window_properties =
 };
 GX_ML_TEXT_VIEW_PROPERTIES window_text_view_properties =
 {
-    0,                                       /* string id                      */
+    GX_STRING_ID_STRING_1,                   /* string id                      */
     GX_FONT_ID_FLIPDOTFONT3BY5,              /* font id                        */
     GX_COLOR_ID_TEXT_INPUT_TEXT,             /* normal text color              */
     GX_COLOR_ID_TEXT_INPUT_TEXT,             /* selected text color            */

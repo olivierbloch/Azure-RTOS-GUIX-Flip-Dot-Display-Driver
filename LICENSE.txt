@@ -17,3 +17,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+-------------------------------
+
+The FontStruction “CG pixel 3x5” (file CG Pixel 3x5.ttf)
+(https://fontstruct.com/fontstructions/show/1404325) by “vyznev” is licensed
+under a Creative Commons CC0 Public Domain Dedication license
+(http://creativecommons.org/publicdomain/zero/1.0/).
+“CG pixel 3x5” was originally cloned (copied) from the FontStruction “CG
+pixel 4x5” (https://fontstruct.com/fontstructions/show/1404171) by
+“vyznev”, which is licensed under a Creative Commons CC0 Public Domain
+Dedication license (http://creativecommons.org/publicdomain/zero/1.0/).

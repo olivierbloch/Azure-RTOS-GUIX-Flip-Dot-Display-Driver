@@ -6,7 +6,7 @@
 /*  GUIX Studio User Guide, or visit our web site at azure.com/rtos            */
 /*                                                                             */
 /*  GUIX Studio Revision 6.1.0.0                                               */
-/*  Date (dd.mm.yyyy): 25.11.2020   Time (hh:mm): 14:35                        */
+/*  Date (dd.mm.yyyy):  8.12.2020   Time (hh:mm): 21:27                        */
 /*******************************************************************************/
 
 
@@ -85,17 +85,17 @@ typedef struct
 
 /* Declare top-level control blocks                                            */
 
-typedef struct MAIN_WINDOW_CONTROL_BLOCK_STRUCT
+typedef struct WINDOW_CONTROL_BLOCK_STRUCT
 {
     GX_WINDOW_MEMBERS_DECLARE
-    GX_MULTI_LINE_TEXT_VIEW main_window_text_view;
-} MAIN_WINDOW_CONTROL_BLOCK;
+    GX_MULTI_LINE_TEXT_VIEW window_text_view;
+} WINDOW_CONTROL_BLOCK;
 
 
 /* extern statically defined control blocks                                    */
 
 #ifndef GUIX_STUDIO_GENERATED_FILE
-extern MAIN_WINDOW_CONTROL_BLOCK main_window;
+extern WINDOW_CONTROL_BLOCK window;
 #endif
 
 /* Declare event process functions, draw functions, and callback functions     */

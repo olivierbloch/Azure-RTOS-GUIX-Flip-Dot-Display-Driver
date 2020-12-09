@@ -4,7 +4,7 @@
 #include "CPUFreq.h"
 #include "VectorTable.h"
 
-int main(void);
+extern int main(void);
 
 _Noreturn void RTCoreMain(void)
 {

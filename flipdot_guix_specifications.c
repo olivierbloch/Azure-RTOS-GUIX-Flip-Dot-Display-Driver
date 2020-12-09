@@ -6,7 +6,7 @@
 /*  GUIX Studio User Guide, or visit our web site at azure.com/rtos            */
 /*                                                                             */
 /*  GUIX Studio Revision 6.1.0.0                                               */
-/*  Date (dd.mm.yyyy): 25.11.2020   Time (hh:mm): 14:35                        */
+/*  Date (dd.mm.yyyy):  8.12.2020   Time (hh:mm): 21:27                        */
 /*******************************************************************************/
 
 
@@ -16,7 +16,7 @@
 #include "flipdot_guix_specifications.h"
 
 static GX_WIDGET *gx_studio_nested_widget_create(GX_BYTE *control, GX_CONST GX_STUDIO_WIDGET *definition, GX_WIDGET *parent);
-MAIN_WINDOW_CONTROL_BLOCK main_window;
+WINDOW_CONTROL_BLOCK window;
 GX_DISPLAY display_control_block;
 GX_WINDOW_ROOT display_root_window;
 GX_CANVAS  display_canvas_control_block;
@@ -81,13 +81,13 @@ UINT gx_studio_multi_line_text_view_create(GX_CONST GX_STUDIO_WIDGET *info, GX_W
     }
     return status;
 }
-GX_WINDOW_PROPERTIES main_window_properties =
+GX_WINDOW_PROPERTIES window_properties =
 {
     0                                        /* wallpaper pixelmap id          */
 };
-GX_ML_TEXT_VIEW_PROPERTIES main_window_text_view_properties =
+GX_ML_TEXT_VIEW_PROPERTIES window_text_view_properties =
 {
-    GX_STRING_ID_STRING_11,                  /* string id                      */
+    0,                                       /* string id                      */
     GX_FONT_ID_FLIPDOTFONT3BY5,              /* font id                        */
     GX_COLOR_ID_TEXT_INPUT_TEXT,             /* normal text color              */
     GX_COLOR_ID_TEXT_INPUT_TEXT,             /* selected text color            */
@@ -96,7 +96,7 @@ GX_ML_TEXT_VIEW_PROPERTIES main_window_text_view_properties =
     2                                        /* line_space                     */
 };
 
-GX_CONST GX_STUDIO_WIDGET main_window_text_view_define =
+GX_CONST GX_STUDIO_WIDGET window_text_view_define =
 {
     "text_view",
     GX_TYPE_MULTI_LINE_TEXT_VIEW,            /* widget type                    */
@@ -116,13 +116,13 @@ GX_CONST GX_STUDIO_WIDGET main_window_text_view_define =
     {0, 0, 27, 13},                          /* widget size                    */
     GX_NULL,                                 /* no next widget                 */
     GX_NULL,                                 /* no child widgets               */ 
-    offsetof(MAIN_WINDOW_CONTROL_BLOCK, main_window_text_view), /* control block */
-    (void *) &main_window_text_view_properties /* extended properties          */
+    offsetof(WINDOW_CONTROL_BLOCK, window_text_view), /* control block         */
+    (void *) &window_text_view_properties    /* extended properties            */
 };
 
-GX_CONST GX_STUDIO_WIDGET main_window_define =
+GX_CONST GX_STUDIO_WIDGET window_define =
 {
-    "main_window",
+    "window",
     GX_TYPE_WINDOW,                          /* widget type                    */
     GX_ID_NONE,                              /* widget id                      */
     #if defined(GX_WIDGET_USER_DATA)
@@ -130,7 +130,7 @@ GX_CONST GX_STUDIO_WIDGET main_window_define =
     #endif
     GX_STYLE_BORDER_NONE|GX_STYLE_ENABLED,   /* style flags                    */
     GX_STATUS_ACCEPTS_FOCUS,                 /* status flags                   */
-    sizeof(MAIN_WINDOW_CONTROL_BLOCK),       /* control block size             */
+    sizeof(WINDOW_CONTROL_BLOCK),            /* control block size             */
     GX_COLOR_ID_WINDOW_FILL,                 /* normal color id                */
     GX_COLOR_ID_WINDOW_FILL,                 /* selected color id              */
     GX_COLOR_ID_DISABLED_FILL,               /* disabled color id              */
@@ -139,13 +139,13 @@ GX_CONST GX_STUDIO_WIDGET main_window_define =
     (UINT (*)(GX_WIDGET *, GX_EVENT *)) main_event_process, /* event function override */
     {0, 0, 27, 13},                          /* widget size                    */
     GX_NULL,                                 /* next widget                    */
-    &main_window_text_view_define,           /* child widget                   */
+    &window_text_view_define,                /* child widget                   */
     0,                                       /* control block                  */
-    (void *) &main_window_properties         /* extended properties            */
+    (void *) &window_properties              /* extended properties            */
 };
 GX_CONST GX_STUDIO_WIDGET_ENTRY flipdot_guix_widget_table[] =
 {
-    { &main_window_define, (GX_WIDGET *) &main_window },
+    { &window_define, (GX_WIDGET *) &window },
     {GX_NULL, GX_NULL}
 };
 

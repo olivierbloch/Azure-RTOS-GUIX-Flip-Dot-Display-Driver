@@ -6,7 +6,7 @@
 /*  Studio User Guide, or visit our web site at azure.com/rtos                 */
 /*                                                                             */
 /*  GUIX Studio Revision 6.1.0.0                                               */
-/*  Date (dd.mm.yyyy): 18.11.2020   Time (hh:mm): 16:54                        */
+/*  Date (dd.mm.yyyy):  8.12.2020   Time (hh:mm): 21:27                        */
 /*******************************************************************************/
 
 
@@ -45,16 +45,6 @@
 /* String Ids                                                                  */
 
 #define GX_STRING_ID_STRING_1 1
-#define GX_STRING_ID_STRING_2 2
-#define GX_STRING_ID_STRING_3 3
-#define GX_STRING_ID_STRING_4 4
-#define GX_STRING_ID_STRING_5 5
-#define GX_STRING_ID_STRING_6 6
-#define GX_STRING_ID_STRING_7 7
-#define GX_STRING_ID_STRING_8 8
-#define GX_STRING_ID_STRING_9 9
-#define GX_STRING_ID_STRING_10 10
-#define GX_STRING_ID_STRING_11 11
-#define DISPLAY_STRING_TABLE_SIZE 12
+#define DISPLAY_STRING_TABLE_SIZE 2
 
 #endif                                       /* sentry                         */

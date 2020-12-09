@@ -28,13 +28,6 @@ const unsigned int mask[] = { 128,64,32,16,8,4,2,1 }; // Mask used to shift data
 const unsigned int getMask[] = { 128, 64, 32, 16, 8, 4, 2, 1 };
 const unsigned int setMask[] = { 64, 32, 16, 8, 4, 2, 1 };
 
-// Utility function to send frame to Flipdot over serial connection
-void send_to_flipdot(unsigned char *messageToSend, unsigned int bytesToSend)
-{
-	UART_Write(driver, messageToSend, bytesToSend );
-	tx_thread_sleep(3);
-}
-
 // map the pixel x,y display to reverse vertical stripes (format expected by the Flipdot controller).
 void map_logical_display_to_physical_display(void)
 {
@@ -81,7 +74,6 @@ static void flipdot_buffer_toggle(GX_CANVAS *canvas, GX_RECTANGLE *dirty)
 	// copy the top display data.
 	memcpy(frame.data, bOutBuffer, 28);
 	// write the data
-//	send_to_flipdot((unsigned char*)&frame, sizeof(frame));
 	UART_Write(driver, (unsigned char*)&frame, sizeof(frame) );
 	tx_thread_sleep(3);
 
@@ -90,8 +82,8 @@ static void flipdot_buffer_toggle(GX_CANVAS *canvas, GX_RECTANGLE *dirty)
 	// copy the top display data.
 	memcpy(frame.data, (bOutBuffer)+28, 28);
 	// write the data
-//	send_to_flipdot((unsigned char*)&frame, sizeof(frame));
 	UART_Write(driver, (unsigned char*)&frame, sizeof(frame) );
+	tx_thread_sleep(3);
 }
 
 // Driver setup

@@ -6,7 +6,7 @@
 /*  Studio User Guide, or visit our web site at azure.com/rtos                 */
 /*                                                                             */
 /*  GUIX Studio Revision 6.1.0.0                                               */
-/*  Date (dd.mm.yyyy): 18.11.2020   Time (hh:mm): 16:54                        */
+/*  Date (dd.mm.yyyy):  8.12.2020   Time (hh:mm): 21:27                        */
 /*******************************************************************************/
 
 
@@ -666,34 +666,14 @@ GX_CONST GX_PIXELMAP *display_theme_1_pixelmap_table[] =
 
 /* String values                                                               */
 
-GX_CONST GX_UBYTE display_STRING_1_English[] = "Top";
-GX_CONST GX_UBYTE display_STRING_2_English[] = "Bottom";
-GX_CONST GX_UBYTE display_STRING_3_English[] = "prompt";
-GX_CONST GX_UBYTE display_STRING_4_English[] = "Hello";
-GX_CONST GX_UBYTE display_STRING_5_English[] = "world";
-GX_CONST GX_UBYTE display_STRING_6_English[] = "IoT";
-GX_CONST GX_UBYTE display_STRING_7_English[] = "IoT World";
-GX_CONST GX_UBYTE display_STRING_8_English[] = "World";
-GX_CONST GX_UBYTE display_STRING_9_English[] = "Hello World";
-GX_CONST GX_UBYTE display_STRING_10_English[] = "text_view";
-GX_CONST GX_UBYTE display_STRING_11_English[] = "...";
+GX_CONST GX_UBYTE display_STRING_1_English[] = "...";
 
 /* String Table for display language English                                   */
 
-GX_CONST GX_STRING display_English_string_table[12] =
+GX_CONST GX_STRING display_English_string_table[2] =
 {
     {GX_NULL, 0},
-    {(GX_CONST GX_CHAR *)display_STRING_1_English, sizeof(display_STRING_1_English) - 1},
-    {(GX_CONST GX_CHAR *)display_STRING_2_English, sizeof(display_STRING_2_English) - 1},
-    {(GX_CONST GX_CHAR *)display_STRING_3_English, sizeof(display_STRING_3_English) - 1},
-    {(GX_CONST GX_CHAR *)display_STRING_4_English, sizeof(display_STRING_4_English) - 1},
-    {(GX_CONST GX_CHAR *)display_STRING_5_English, sizeof(display_STRING_5_English) - 1},
-    {(GX_CONST GX_CHAR *)display_STRING_6_English, sizeof(display_STRING_6_English) - 1},
-    {(GX_CONST GX_CHAR *)display_STRING_7_English, sizeof(display_STRING_7_English) - 1},
-    {(GX_CONST GX_CHAR *)display_STRING_8_English, sizeof(display_STRING_8_English) - 1},
-    {(GX_CONST GX_CHAR *)display_STRING_9_English, sizeof(display_STRING_9_English) - 1},
-    {(GX_CONST GX_CHAR *)display_STRING_10_English, sizeof(display_STRING_10_English) - 1},
-    {(GX_CONST GX_CHAR *)display_STRING_11_English, sizeof(display_STRING_11_English) - 1}
+    {(GX_CONST GX_CHAR *)display_STRING_1_English, sizeof(display_STRING_1_English) - 1}
 };
 
 /*  Language Table                                                             */

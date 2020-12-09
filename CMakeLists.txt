@@ -11,6 +11,10 @@ azsphere_configure_tools(TOOLS_REVISION "20.07")
 ADD_COMPILE_DEFINITIONS(OSAI_BARE_METAL)
 ADD_LINK_OPTIONS(-specs=nano.specs -specs=nosys.specs)
 
+configure_file( ${CMAKE_HOME_DIRECTORY}/mt3620-m4-samples/ThreadX_RTApp_MT3620_AzureRTOS/linker.ld
+                ${CMAKE_HOME_DIRECTORY}/linker.ld
+                COPYONLY)
+
 include_directories(${CMAKE_SOURCE_DIR} 
 	                ${CMAKE_SOURCE_DIR}/mt3620_lib
 					${CMAKE_SOURCE_DIR}/mt3620_lib/mt3620)
@@ -34,8 +38,6 @@ add_subdirectory(threadx)
 add_subdirectory(guix)
 
 target_link_libraries(${PROJECT_NAME} azrtos::threadx azrtos::guix)
-set_target_properties (${PROJECT_NAME} PROPERTIES LINK_DEPENDS ${CMAKE_HOME_DIRECTORY}/mt3620-m4-samples/ThreadX_RTApp_MT3620_AzureRTOS/linker.ld)
-
-# target_link_libraries (${PROJECT_NAME} PUBLIC -L"${CMAKE_SOURCE_DIR}")
+set_target_properties (${PROJECT_NAME} PROPERTIES LINK_DEPENDS ${CMAKE_SOURCE_DIR}/linker.ld)
 
 azsphere_target_add_image_package(${PROJECT_NAME})

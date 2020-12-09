@@ -1,3 +1,5 @@
 # Ignore output directories
 /out/
 /install/
+
+linker.ld

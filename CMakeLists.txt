@@ -2,7 +2,7 @@
 
 cmake_minimum_required (VERSION 3.10)
 #set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
-project (AzureSRFlipdot C ASM)
+project (Azure-RTOS-GUIX-Flip-Dot-Display-Driver C ASM)
 
 SET(CMAKE_ASM_FLAGS "-mcpu=cortex-m4")
 

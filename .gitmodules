@@ -7,3 +7,6 @@
 [submodule "guix"]
 	path = guix
 	url = https://github.com/azure-rtos/guix
+[submodule "mt3620-m4-samples"]
+	path = mt3620-m4-samples
+	url = https://github.com/CodethinkLabs/mt3620-m4-samples.git

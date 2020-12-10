@@ -1,0 +1,17 @@
+Third Party Notices for Azure-RTOS-Flip-Dot-Display-Driver
+
+This project incorporates material from the project(s) listed below (collectively, “Third Party Code”).
+Microsoft Corp. is not the original author of the Third Party Code.
+The original copyright notice and license, under which Microsoft Corp. received such Third Party Code, 
+are set out below.  This Third Party Code is licensed to you under their original license terms set forth below.  
+Microsoft Corp. reserves all other rights not expressly granted, whether by implication, estoppel or otherwise.  
+
+1.	CG Pixel 3x5.ttf, obtained from https://fontstruct.com/fontstructions/show/1404325
+
+CG Pixel 3x5 font
+By: “vyznev”
+From: https://fontstruct.com/fontstructions/show/1404325
+License: This code is licensed under a Creative Commons CC0 Public Domain Dedication license (http://creativecommons.org/publicdomain/zero/1.0/).
+
+“CG pixel 3x5” was originally cloned (copied) from the FontStruction “CG pixel 4x5” (https://fontstruct.com/fontstructions/show/1404171) by
+“vyznev”, which is licensed under a Creative Commons CC0 Public Domain Dedication license (http://creativecommons.org/publicdomain/zero/1.0/).

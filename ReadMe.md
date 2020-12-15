@@ -424,8 +424,8 @@ Before moving on, add the driver file as well as the UART driver from the Codeth
 
 ```
 add_executable (${PROJECT_NAME}
-    tx_initialize_low_level.S
-    VectorTable.c
+    mt3620-m4-samples/ThreadX_RTApp_MT3620_AzureRTOS/tx_initialize_low_level.S
+    mt3620-m4-samples/ThreadX_RTApp_MT3620_AzureRTOS/VectorTable.c
     mt3620_lib/UART.c
     flipdot_graphics_driver.c
     threadx_app.c
